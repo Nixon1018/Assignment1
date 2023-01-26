@@ -42,7 +42,7 @@ class Main
     }
     public  void currentbalance()
     {
-        LOGGER.log(Level.INFO,"Your account balance is :"+balance);
+        LOGGER.log(Level.INFO,Integer.toString(balance),"Your account balance is :"+balance);
     }
 
 }
