@@ -4,22 +4,24 @@ import java.util.logging.Logger;
 import java.util.Scanner;
 class Main
 {
+    private static final  Logger LOGGER=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     String accountholdername;
     int accountnumber;
-    int balance=500;
+    int balance;
     static Scanner scanner = new Scanner(System.in);
 
 
-    Main(String accountholdername,int accountnumber)
+    Main(String accountholdername,int accountnumber,int balance)
     {
 
         this.accountholdername=accountholdername;
         this.accountnumber=accountnumber;
+        this.balance=balance;
     }
 
     void deposit()
     {
-        System.out.println("Enter the amount to be deposited ");
+        LOGGER.log(Level.INFO,"Enter the amount to be deposited");
         int amount=scanner.nextInt();
         balance=amount+balance;
 
@@ -27,11 +29,11 @@ class Main
     }
     public void withdraw()
     {
-        System.out.println("Enter the amount to be withdrawn");
+        LOGGER.log(Level.INFO,"Enter the amount to be withdrawn");
         int amountw=scanner.nextInt();
         if(amountw>balance)
         {
-            System.out.println("Money can not be withdrawn");
+            LOGGER.log(Level.INFO,"Money can not be withdrawn");
         }
         else
         {
@@ -40,31 +42,38 @@ class Main
     }
     public  void currentbalance()
     {
-        System.out.println("Your account balance is :"+balance);
+        LOGGER.log(Level.INFO,"Your account balance is :"+balance);
     }
 
 }
 
 class App
 {
+    private static final  Logger LOGGER=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public static void main( String[] args )
     {
         int service=1;
+        int balance;
         String accountholdername;
         int accountnumber;
         Scanner sc = new Scanner(System.in);
+
+
+            LOGGER.log(Level.INFO,"welcome to the bank");
+            LOGGER.log(Level.INFO,"Enter the account holdername:");
+            accountholdername=sc.next();
+            LOGGER.log(Level.INFO,"Enter the account number:");
+            accountnumber=sc.nextInt();
+            LOGGER.log(Level.INFO,"Enter the amount:");
+            balance=sc.nextInt();
+            Main m = new Main(accountholdername,accountnumber,balance);
         while(service==1)
         {
+            LOGGER.log(Level.INFO,"1.deposit 2.withdraw 3.currentbalance 4.quiet");
+            LOGGER.log(Level.INFO,"Enter the choice: ");
 
-            System.out.println("welcome to the bank");
-            System.out.println("Enter the account holdername:");
-            accountholdername=sc.next();
-            System.out.println("Enter the account number:");
-            accountnumber=sc.nextInt();
-            System.out.println("1.deposit 2.withdraw 3.currentbalance 4.quiet");
-            System.out.println("Enter the choice: ");
             int choice=sc.nextInt();
-            Main m = new Main(accountholdername,accountnumber);
+
             switch(choice)
             {
 
@@ -83,10 +92,10 @@ class App
                     break;
 
                 default:
-                    System.out.println("Enter a valid choice");
+                    LOGGER.log(Level.INFO,"Enter a valid choice");
                     break;
             }
-            System.out.println("-------------------------------------------");
+            LOGGER.log(Level.INFO,"-------------------------------------------");
         }
     }
 }
