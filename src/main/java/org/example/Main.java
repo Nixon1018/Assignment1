@@ -6,7 +6,7 @@ class Main
 {
     String accountholdername;
     int accountnumber;
-    static int balance=500;
+    int balance=500;
     static Scanner scanner = new Scanner(System.in);
 
 
@@ -17,7 +17,7 @@ class Main
         this.accountnumber=accountnumber;
     }
 
-    static void deposit()
+    void deposit()
     {
         System.out.println("Enter the amount to be deposited ");
         int amount=scanner.nextInt();
@@ -25,7 +25,7 @@ class Main
 
 
     }
-    public static void withdraw()
+    public void withdraw()
     {
         System.out.println("Enter the amount to be withdrawn");
         int amountw=scanner.nextInt();
@@ -38,7 +38,7 @@ class Main
             balance=balance-amountw;
         }
     }
-    public static void currentbalance()
+    public  void currentbalance()
     {
         System.out.println("Your account balance is :"+balance);
     }
@@ -69,13 +69,13 @@ class App
             {
 
                 case 1:
-                    Main.deposit();
+                    m.deposit();
                     break;
                 case 2:
-                    Main.withdraw();
+                    m.withdraw();
                     break;
                 case 3:
-                    Main.currentbalance();
+                    m.currentbalance();
                     break;
                 case 4:
                     service=0;
