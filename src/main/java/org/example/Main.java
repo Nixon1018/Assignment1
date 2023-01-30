@@ -67,15 +67,14 @@ class App
             LOGGER.log(Level.INFO,"Enter the amount:");
             balance=sc.nextInt();
             Main m = new Main(accountholdername,accountnumber,balance);
-        while(service==1)
-        {
-            LOGGER.log(Level.INFO,"1.deposit 2.withdraw 3.currentbalance 4.quiet");
-            LOGGER.log(Level.INFO,"Enter the choice: ");
+        while(service==1) {
+            try{
+            LOGGER.log(Level.INFO, "1.deposit 2.withdraw 3.currentbalance 4.quiet");
+            LOGGER.log(Level.INFO, "Enter the choice: ");
 
-            int choice=sc.nextInt();
+            int choice = sc.nextInt();
 
-            switch(choice)
-            {
+            switch (choice) {
 
                 case 1:
                     m.deposit();
@@ -87,15 +86,21 @@ class App
                     m.currentbalance();
                     break;
                 case 4:
-                    service=0;
+                    service = 0;
                     System.exit(1);
                     break;
 
                 default:
-                    LOGGER.log(Level.INFO,"Enter a valid choice");
+                    LOGGER.log(Level.INFO, "Enter a valid choice");
                     break;
             }
-            LOGGER.log(Level.INFO,"-------------------------------------------");
+            LOGGER.log(Level.INFO, "-------------------------------------------");
+        } catch (Exception e)
+            {
+               String ec = ""+e;
+               LOGGER.info(ec);
+               sc.nextLine();
+            }
         }
     }
 }
