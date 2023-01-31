@@ -68,7 +68,6 @@ class App
             balance=sc.nextInt();
             Main m = new Main(accountholdername,accountnumber,balance);
         while(service==1) {
-            try{
             LOGGER.log(Level.INFO, "1.deposit 2.withdraw 3.currentbalance 4.quiet");
             LOGGER.log(Level.INFO, "Enter the choice: ");
 
@@ -95,12 +94,6 @@ class App
                     break;
             }
             LOGGER.log(Level.INFO, "-------------------------------------------");
-        } catch (Exception e)
-            {
-               String ec = ""+e;
-               LOGGER.info(ec);
-               sc.nextLine();
-            }
         }
     }
 }
