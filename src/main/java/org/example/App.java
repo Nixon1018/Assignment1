@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 import java.util.Scanner;
 
 
-class App
+public class App
 {
     private static final  Logger LOGGER=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public static void main( String[] args )
