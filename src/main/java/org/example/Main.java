@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-class Main
+public class Main
 {
     private static final Logger LOGGER=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     String accountholdername;
